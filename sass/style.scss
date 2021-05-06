@@ -1,0 +1,17 @@
+body {
+  background-color: red;
+}
+
+html {
+  background-color: brown;
+
+  head {
+    color: burlywood;
+  }
+}
+
+@for $i from 1 through 20 {
+  div-#($i * 10) {
+    width: $i * 5%;
+  }
+}
