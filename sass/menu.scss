@@ -1,4 +1,72 @@
 .menu {
-  width: 50px;
-  background: url(../images/icon-hamburger.svg) center no-repeat;
+  display: none;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  &__button {
+    width: 50px;
+    height: 50px;
+    background: url(../images/icon-hamburger.svg) center no-repeat;
+  }
+  a {
+    text-decoration: none;
+    color: var(--gray-blue);
+    padding: 0 1rem;
+  }
+  .button {
+    display: block;
+  }
+  &__item {
+    display: flex;
+    align-items: center;
+  }
+  &__checkbox {
+    display: none;
+    &:checked {
+      & ~ .menu__button {
+        background: url(../images/icon-close.svg) no-repeat center;
+      }
+      & ~ .menu {
+        display: block;
+        position: absolute;
+        top: 100%;
+        padding: 1rem;
+        left: 0;
+        right: 0;
+        height: 100vh;
+        background: linear-gradient(
+          to bottom,
+          var(--dark-blue) 0%,
+          transparent 90%
+        );
+        .menu__item {
+          position: relative;
+          z-index: 1;
+          &:first-child a {
+            padding-top: 2rem;
+            border-radius: 0.5rem 0.5rem 0 0;
+          }
+          &:last-child a {
+            padding-bottom: 2rem;
+            border-radius: 0 0 0.5rem 0.5rem;
+          }
+        }
+        a {
+          padding: 0.8rem 1rem;
+          color: var(--dark-blue);
+          font-size: 1.2rem;
+          display: block;
+          text-align: center;
+          background: var(--white);
+          flex: 1;
+        }
+      }
+    }
+  }
+  @media screen and (min-width: 1024px) {
+    display: flex;
+    &__button {
+      display: none;
+    }
+  }
 }
